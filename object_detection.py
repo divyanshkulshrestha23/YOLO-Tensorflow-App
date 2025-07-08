@@ -2,11 +2,21 @@ import cv2
 import numpy as np
 import tensorflow as tf
 from ultralytics import YOLO  # adjust import as needed
+from helping_functions import helper
+ocnfig_file = 'Your config file here'
+try:
+    # Read the configuration values from config             
+    configuration_values = helper().read_config(config_file)
+    #print(configuration_values)
+except Exception as ex:
+    print('Reading Configaration Error :', ex)
+
+
 
 class TensorflowDetection:
     def __init__(self, model_path):
-        self.helper = helper()
         self.detection_graph = tf.Graph()
+        self.helper = helper()
         with self.detection_graph.as_default():
             od_graph_def = tf.compat.v1.GraphDef()
             with tf.gfile.GFile(model_path, 'rb') as fid:
