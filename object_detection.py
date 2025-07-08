@@ -29,7 +29,6 @@ class TensorflowDetection:
             self.detection_scores = self.detection_graph.get_tensor_by_name('detection_scores:0')
             self.detection_classes = self.detection_graph.get_tensor_by_name('detection_classes:0')
             self.num_detections = self.detection_graph.get_tensor_by_name('num_detections:0')
-        self.helper = helper()  # assume helper is imported or defined elsewhere
 
     def process(self, image_np, draw_boxes=False, threshold=0.5):
         image_bgr = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
