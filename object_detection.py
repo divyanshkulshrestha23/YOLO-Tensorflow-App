@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 from ultralytics import YOLO  # adjust import as needed
 from helping_functions import helper
-ocnfig_file = 'Your config file here'
+config_file = 'Your config file here'
 try:
     # Read the configuration values from config             
     configuration_values = helper().read_config(config_file)
